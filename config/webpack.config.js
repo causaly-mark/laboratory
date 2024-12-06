@@ -5,6 +5,10 @@ const webpack = require('webpack');
 const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
+  stats: {
+    errorDetails: true,
+    children: true
+ },
   output: {
     path: path.resolve(__dirname, '..', 'build'),
     filename: '[name].js'
@@ -25,7 +29,7 @@ module.exports = {
           options: {
             babelrc: false,
             plugins: [
-              '@babel/plugin-proposal-object-rest-spread'
+              '@babel/plugin-transform-object-rest-spread'
             ],
             presets: [
               ['@babel/preset-env', {
